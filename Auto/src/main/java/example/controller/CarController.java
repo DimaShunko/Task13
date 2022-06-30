@@ -46,18 +46,18 @@ public class CarController {
     }
 
     @PostMapping("/mark")
-    private void  addMark(@RequestParam(value = "name", defaultValue = "null") String name, @RequestParam(value = "caption", defaultValue = "null") String caption, @RequestParam(value = "active", defaultValue = "null") Boolean active) {
-        carService.getMark(name, caption, active);
+    private void  addMark(@RequestBody Mark mark) {
+        carService.getMark(mark);
     }
 
     @PostMapping("/mark/{id}/model")
-    private void  addModel(@RequestParam(value = "name", defaultValue = "null") String name, @RequestParam(value = "caption", defaultValue = "null") String caption, @RequestParam(value = "active", defaultValue = "null") Boolean active, @PathVariable("id") long id_mark) {
-        carService.getModel(name, caption, active,id_mark);
+    private void  addModel(@PathVariable("id") long id_mark,@RequestBody Model model) {
+        carService.getModel(model,id_mark);
     }
 
     @PostMapping("/model/{id}/modific")
-    private void  addModific(@RequestParam(value = "name", defaultValue = "null") String name, @RequestParam(value = "caption", defaultValue = "null") String caption, @RequestParam(value = "active", defaultValue = "null") Boolean active, @PathVariable("id") long id_model) {
-        carService.getModific(name, caption, active,id_model);
+    private void  addModific(@RequestBody Modific modific, @PathVariable("id") long id_model) {
+        carService.getModific( modific, id_model);
     }
 
 }

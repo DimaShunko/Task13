@@ -31,11 +31,10 @@ public class Model {
 
     public Model(){}
 
-    public Model(String name, boolean active, String caption, Mark mark) {
+    public Model(String name, boolean active, String caption) {
         this.name = name;
         this.active = active;
         this.caption = caption;
-        this.mark = mark;
     }
 
     public long getId() {

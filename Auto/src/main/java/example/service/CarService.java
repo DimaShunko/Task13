@@ -24,11 +24,7 @@ public class CarService {
     @Autowired
     ModificRepository modificRepository;
 
-    public void getMark(String name, String caption, Boolean active) {
-        Mark mark = new Mark();
-        mark.setName(name);
-        mark.setCaption(caption);
-        mark.setActive(active);
+    public void getMark(Mark mark) {
         markRepository.save(mark);
     }
 
@@ -46,11 +42,7 @@ public class CarService {
         return modelRepository.findById(id).get();
     }
 
-    public void getModel(String name, String caption, Boolean active, long id) {
-        Model model = new Model();
-        model.setName(name);
-        model.setCaption(caption);
-        model.setActive(active);
+    public void getModel(Model model, long id) {
         model.setMark(getMarkById(id));
         modelRepository.save(model);
     }
@@ -59,11 +51,7 @@ public class CarService {
         return getMarkById(id).getModels().stream().collect(Collectors.toList());
     }
 
-    public void getModific(String name, String caption, Boolean active, long id) {
-        Modific modific = new Modific();
-        modific.setName(name);
-        modific.setCaption(caption);
-        modific.setActive(active);
+    public void getModific(Modific modific, long id) {
         modific.setModel(getModelById(id));
         modificRepository.save(modific);
     }

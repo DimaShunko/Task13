@@ -16,12 +16,21 @@ public class Modific {
     @Column
     private boolean active;
     @Column
-    private String caption;
+    private int beginPeriod;
+    @Column
+    private int endPeriod;
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "model_id")
     private Model model;
+
+    public Modific(String name, boolean active, int beginPeriod, int endPeriod) {
+        this.name = name;
+        this.active = active;
+        this.beginPeriod = beginPeriod;
+        this.endPeriod = endPeriod;
+    }
 
     public Modific() {
 
@@ -51,12 +60,20 @@ public class Modific {
         this.name = name;
     }
 
-    public String getCaption() {
-        return caption;
+    public int getBeginPeriod() {
+        return beginPeriod;
     }
 
-    public void setCaption(String caption) {
-        this.caption = caption;
+    public void setBeginPeriod(int beginPeriod) {
+        this.beginPeriod = beginPeriod;
+    }
+
+    public int getEndPeriod() {
+        return endPeriod;
+    }
+
+    public void setEndPeriod(int endPeriod) {
+        this.endPeriod = endPeriod;
     }
 
     public Model getModel() {

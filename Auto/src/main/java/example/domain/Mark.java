@@ -27,6 +27,12 @@ public class Mark {
 
     }
 
+    public Mark(String name, String caption, boolean active) {
+        this.name = name;
+        this.caption = caption;
+        this.active = active;
+    }
+
     public long getId() {
         return id;
     }
@@ -66,10 +72,6 @@ public class Mark {
 
     public void setCaption(String caption) {
         this.caption = caption;
-    }
-
-    public void addModel(Model model){
-        models.add(model);
     }
 
 }
