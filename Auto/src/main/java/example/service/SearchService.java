@@ -32,27 +32,27 @@ public class SearchService {
     }
 
     public List<Modific> getModificByBeginPeriodAndMark(int beginPeriod, Model model) {
-        return modificRepository.findModificByBeginPeriodAndModel(beginPeriod, model);
+        return modificRepository.findModificByBeginPeriodGreaterThanAndModel(beginPeriod-1, model);
     }
 
     public List<Modific> getModificByEndPeriodAndMark(int endPeriod, Model model) {
-        return modificRepository.findModificByEndPeriodAndModel(endPeriod, model);
+        return modificRepository.findModificByEndPeriodLessThanAndModel(endPeriod+1, model);
     }
 
     public List<Modific> getModificByNameAndBeginPeriodAndMark(String name, int beginPeriod, Model model) {
-        return modificRepository.findModificByNameAndBeginPeriodAndModel(name, beginPeriod, model);
+        return modificRepository.findModificByNameAndBeginPeriodGreaterThanAndModel(name, beginPeriod-1, model);
     }
 
     public List<Modific> getModificByNameAndEndPeriodAndMark(String name, int endPeriod, Model model) {
-        return modificRepository.findModificByNameAndEndPeriodAndModel(name, endPeriod, model);
+        return modificRepository.findModificByNameAndEndPeriodLessThanAndModel(name, endPeriod+1, model);
     }
 
     public List<Modific> getModificByBeginPeriodAndEndPeriodAndMark(int beginPeriod, int endPeriod, Model model) {
-        return modificRepository.findModificByBeginPeriodAndEndPeriodAndModel(beginPeriod, endPeriod, model);
+        return modificRepository.findModificByBeginPeriodGreaterThanAndEndPeriodLessThanAndModel(beginPeriod-1, endPeriod+1, model);
     }
 
     public List<Modific> getModificByNameAndBeginPeriodAndEndPeriodAndMark(String name, int beginPeriod, int endPeriod, Model model) {
-        return modificRepository.findModificByNameAndBeginPeriodAndEndPeriodAndModel(name, beginPeriod, endPeriod, model);
+        return modificRepository.findModificByNameAndBeginPeriodGreaterThanAndEndPeriodLessThanAndModel(name, beginPeriod-1, endPeriod+1, model);
     }
 
     public Mark getMarkByName(String name) {
